@@ -1,7 +1,7 @@
 # The Pseudocode for the Assignment 1
 
 
-While the collected token is less than 6:
+## While the collected token is less than 6:
     if silver is true:
         find a silver token
     else:
