@@ -5,6 +5,7 @@
 >The pseudocodes are provided over here for an overview of the program.
 
 
+
        While the collected token is less than 6:
            if silver is true:
                find a silver token
