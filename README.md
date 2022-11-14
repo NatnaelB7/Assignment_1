@@ -1,6 +1,6 @@
 Assignment 1 - Python Robotics Simulator
 ==========================================
-This is a simple robot simulator coded by Natnael Berhanu Takele that pairs the silver and golden boxes.
+This is a simple robot simulator coded by *Natnael Berhanu Takele* that pairs the silver and golden boxes.
 
 Installing and Running
 ------------------------
@@ -25,12 +25,9 @@ To help the robot to pair silver and golden boxes by following this steps:
 * Move to the closest golden box
 * Place a silver box next to the golden box
 
-
-
-## Pseudocodes
->The pseudocodes are provided over here for an overview of the program.
-
-
+Pseudocodes
+-----------------
+The pseudocodes are provided over here for an overview of the program.
 
        While the collected token is less than 6:
            if silver is true:
