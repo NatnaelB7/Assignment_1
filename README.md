@@ -20,10 +20,10 @@ The *R.grab* function returns **True** if a token was successfully picked up, or
 
 ## Vision
 To help the robot to pair silver and golden boxes by following this steps:  
->>-Find a silver box by looking around the domain
->>-Grab the closest silver box
->>-Move to the closest golden box
->>-Place a silver box next to the golden box
+* Find a silver box by looking around the domain
+* Grab the closest silver box
+* Move to the closest golden box
+* Place a silver box next to the golden box
 
 
 
