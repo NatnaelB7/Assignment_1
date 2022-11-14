@@ -20,6 +20,8 @@ The robot is equipped with a grabber, capable of picking up a token which is in 
 
 The *R.grab* function returns **True** if a token was successfully picked up, or **False** otherwise. If the robot is already holding a token, it will throw an **AlreadyHoldingSomethingException**.
 
+To drop the token, call the *R.release* method.
+
 ## Vision
 To help the robot to pair silver and golden boxes by following this steps:  
 * Find a silver box by looking around the domain
