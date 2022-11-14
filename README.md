@@ -1,6 +1,6 @@
 Assignment 1 - Python Robotics Simulator
 ==========================================
->This is a simple robot simulator coded by Natnael Berhanu Takele that pairs the silver and golden boxes.
+This is a simple robot simulator coded by Natnael Berhanu Takele that pairs the silver and golden boxes.
 
 Installing and Running
 ------------------------
