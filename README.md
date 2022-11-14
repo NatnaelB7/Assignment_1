@@ -11,7 +11,7 @@ When done, you can run the program with:
 Robot 
 ------------
 ### Motors
-The simulated robot has two motors configured for skid steering, connected to a two-output Motor Board. The left motor is connected to output 0 and the right motor to output 1.
+The simulated robot has two motors configured for skid steering, connected to a two-output Motor Board. The left motor is connected to output **0** and the right motor to output **1**.
 
 ## Pseudocodes
 >The pseudocodes are provided over here for an overview of the program.
