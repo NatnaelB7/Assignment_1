@@ -1,5 +1,16 @@
-# Assignment 1
+Assignment 1 - Python Robotics Simulator
+==========================================
 >This is a simple robot simulator coded by Natnael Berhanu Takele that pairs the silver and golden boxes.
+
+Installing and Running
+------------------------
+>The simulator requires a Python 2.7 installation, the pygame library, PyPyBox2D, and PyYAML.
+>When done, you can run the program with:
+>>$ python run.py assignment_solution_submitted.py
+
+Robot 
+------------
+
 
 ## Pseudocodes
 >The pseudocodes are provided over here for an overview of the program.
