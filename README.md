@@ -13,6 +13,20 @@ Robot
 ### Motors
 The simulated robot has two motors configured for skid steering, connected to a two-output Motor Board. The left motor is connected to output **0** and the right motor to output **1**.
 
+## The Grabber
+The robot is equipped with a grabber, capable of picking up a token which is in front of the robot and within 0.4 metres of the robot's centre. To pick up a token, call the *R.grab* method:
+>success = R.grab()
+The *R.grab* function returns **True** if a token was successfully picked up, or **False** otherwise. If the robot is already holding a token, it will throw an **AlreadyHoldingSomethingException**.
+
+## Vision
+To help the robot to pair silver and golden boxes by following this steps:  
+>-Find a silver box by looking around the domain
+>-Grab the closest silver box
+>-Move to the closest golden box
+>-Place a silver box next to the golden box
+
+
+
 ## Pseudocodes
 >The pseudocodes are provided over here for an overview of the program.
 
