@@ -17,6 +17,7 @@ The simulated robot has two motors configured for skid steering, connected to a 
 ## The Grabber
 The robot is equipped with a grabber, capable of picking up a token which is in front of the robot and within 0.5 metres of the robot's centre. To pick up a token, call the *R.grab* method:
 >success = R.grab()
+
 The *R.grab* function returns **True** if a token was successfully picked up, or **False** otherwise. If the robot is already holding a token, it will throw an **AlreadyHoldingSomethingException**.
 
 ## Vision
