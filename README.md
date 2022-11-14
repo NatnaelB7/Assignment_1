@@ -4,9 +4,9 @@ This is a simple robot simulator coded by Natnael Berhanu Takele that pairs the 
 
 Installing and Running
 ------------------------
->The simulator requires a Python 2.7 installation, the pygame library, PyPyBox2D, and PyYAML.
->When done, you can run the program with:
->>$ python run.py assignment_solution_submitted.py
+The simulator requires a Python 2.7 installation, the pygame library, PyPyBox2D, and PyYAML.
+When done, you can run the program with:
+>$ python run.py assignment_solution_submitted.py
 
 Robot 
 ------------
