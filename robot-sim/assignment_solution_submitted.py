@@ -4,33 +4,26 @@ import time
 from sr.robot import *
 
 """
-Exercise 3 python script
-Put the main code after the definition of the functions. The code should make the robot:
-	- 1) find and grab the closest silver marker (token)
-	- 2) move the marker on the right
-	- 3) find and grab the closest golden marker (token)
-	- 4) move the marker on the right
-	- 5) start again from 1
+Python Script for Assignment 1
+
+Following the definition of the functions, insert the main code. The robot's coding ought to cause it to:
+	- 1) Find a silver box by looking around the domain
+	- 2) Grab the closest silver box
+	- 3) Move to the closest golden box
+	- 4) Place a silver box next to the golden box
+	- 5) Start agin from 1
 The method see() of the class Robot returns an object whose attribute info.marker_type may be MARKER_TOKEN_GOLD or MARKER_TOKEN_SILVER,
-depending of the type of marker (golden or silver). 
-Modify the code of the exercise2 to make the robot:
-1- retrieve the distance and the angle of the closest silver marker. If no silver marker is detected, the robot should rotate in order to find a marker.
-2- drive the robot towards the marker and grab it
-3- move the marker forward and on the right (when done, you can use the method release() of the class Robot in order to release the marker)
-4- retrieve the distance and the angle of the closest golden marker. If no golden marker is detected, the robot should rotate in order to find a marker.
-5- drive the robot towards the marker and grab it
-6- move the marker forward and on the right (when done, you can use the method release() of the class Robot in order to release the marker)
-7- start again from 1
 	When done, run with:
-	$ python run.py solutions/exercise3_solution.py
+	$ python2 run.py assignment_solution_submitted.py
+	
 """
 
 
-a_th = 4.0
-""" float: Threshold for the control of the linear distance"""
+a_th = 2.0
+""" float: Threshold for the control of the orientation"""
 
 d_th = 0.5
-""" float: Threshold for the control of the orientation"""
+""" float: Threshold for the control of the linear distance"""
 
 silver = True
 """ boolean: variable for letting the robot know if it has to look for a silver or for a golden marker"""
@@ -47,9 +40,9 @@ def drive(speed, seconds):
     """
     R.motors[0].m0.power = speed
     R.motors[0].m1.power = speed
-    time.sleep(seconds)
-    R.motors[0].m0.power = 0
-    R.motors[0].m1.power = 0
+    time.sleep(seconds)                       # The Robot just waits for a second
+    R.motors[0].m0.power = 0                  # The Robot will stop
+    R.motors[0].m1.power = 0                  # The Robot will stop
 
 def turn(speed, seconds):
     """
@@ -60,9 +53,9 @@ def turn(speed, seconds):
     """
     R.motors[0].m0.power = speed
     R.motors[0].m1.power = -speed
-    time.sleep(seconds)
-    R.motors[0].m0.power = 0
-    R.motors[0].m1.power = 0
+    time.sleep(seconds)                       # The Robot just waits for a second
+    R.motors[0].m0.power = 0                  # The Robot will stop
+    R.motors[0].m1.power = 0                  # The Robot will stop
 
 def find_silver_token():
     """
@@ -100,47 +93,46 @@ def find_golden_token():
     	print(rot_y)
    	return dist, rot_y
    	
-tokens_sorted = 0
-first = True
-while tokens_sorted < 6:
-    if silver == True: # if silver is True, than we look for a silver token, otherwise for a golden one
+tokens_collected = 0           # Initializing the number of tokens that are going to be paired together
+first_iteration = True         # When silver box is closed to the golden box
+
+while tokens_collected < 6:
+    if silver == True:         # If silver is True, than we look for a silver token, otherwise for a golden one
 	dist, rot_y = find_silver_token()
     else:
 	dist, rot_y = find_golden_token()
-    if dist==-1: # if no token is detected, we make the robot turn 
-	print("I don't see any token!!")
+    if dist==-1:               # If no token is detected, we make the robot turn 
+	print("No tokens are visible to me!!")
 	turn(+10, 1)
-    elif dist <d_th: # if we are close to the token, we try grab it.
+    elif dist <d_th:           # If we are close to the token, the robot will try to grab it
         print("Found it!")
         if silver == True:
 		if R.grab(): 
-		    print("Gotcha!")
-		    silver = not silver 
-		    if first:
+		    print("Got it!")
+		    silver = not silver  # we modify the value of the variable silver
+		    if first_iteration:
 		    	turn(-20, 4)
-		    	first = False
+		    	first_iteration = False
 		    else:
 		   	turn(-20, 2)
 		else:
-		    print("Aww, I'm not close enough.")
+		    print("Oh no, I'm so far away.")
 		    drive(10, 0.5)
-	else:  #if gold
+	else:                            #if gold
 		if R.release():
-			print("Droppedya!")
+			print("Drop it!")
 			silver = not silver
-			tokens_sorted = tokens_sorted + 1
+			tokens_collected = tokens_collected + 1     # The collected tokens increase by one
 			turn(20, 1)
 			drive(10, 0.5)
 		else:
-		    print("Aww, I'm not close enoug.")
-    elif -a_th<= rot_y <= a_th: # if the robot is well aligned with the token, we go forward
+		    print("Oh no, I'm so far away.")
+    elif -a_th<= rot_y <= a_th:          # If the robot is well aligned with the token, we go forward
 	print("Ah, that'll do.")
         drive(10, 0.5)
-    elif rot_y < -a_th: # if the robot is not well aligned with the token, we move it on the left or on the right
+    elif rot_y < -a_th:  # if the robot is not well aligned with the token, we move it on the left or on the right
         print("Left a bit...")
         turn(-2, 0.5)
     elif rot_y > a_th:
         print("Right a bit...")
         turn(+2, 0.5)
-        
-  
